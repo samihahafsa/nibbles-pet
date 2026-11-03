@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8eadf">
+  <meta name="description" content="A tiny pocket-sized friend to feed, play with, and care for.">
+  <title>Nibbles — Your Little Pocket Friend</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/mouse.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">A LITTLE WORLD JUST FOR YOU</p>
+        <h1>Nibbles <span>♡</span></h1>
+      </div>
+      <div class="header-actions"><button class="install-button" id="installButton" hidden>↓ Install app</button><button class="icon-button" id="soundToggle" aria-label="Toggle sound" title="Toggle sound">♫</button></div>
+    </header>
+
+    <section class="room card">
+      <div class="room-sparkle sparkle-one">✦</div>
+      <div class="room-sparkle sparkle-two">✧</div>
+      <div class="window">
+        <div class="sun"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+      </div>
+      <div class="room-label"><span class="status-dot"></span><span id="statusText">Nibbles is happy</span></div>
+
+      <div class="pet-stage" id="petStage" aria-label="Your little mouse friend">
+        <div class="pet-shadow"></div>
+        <div class="mouse" id="mouse">
+          <div class="tail"></div>
+          <div class="ear ear-back"></div>
+          <div class="body"></div>
+          <div class="ear ear-front"></div>
+          <div class="head">
+            <div class="eye eye-left"></div><div class="eye eye-right"></div>
+            <div class="cheek cheek-left"></div><div class="cheek cheek-right"></div>
+            <div class="nose"></div><div class="mouth"></div>
+            <div class="whiskers whiskers-left"></div><div class="whiskers whiskers-right"></div>
+          </div>
+          <div class="belly"></div>
+          <div class="foot foot-left"></div><div class="foot foot-right"></div>
+        </div>
+        <div class="pet-effect" id="petEffect"></div>
+      </div>
+      <div class="speech-bubble" id="speechBubble">Eep! You came to see me! ♡</div>
+      <p class="pet-name">your tiny bestie</p>
+    </section>
+
+    <section class="needs card">
+      <div class="section-heading"><div><p class="eyebrow">HOW I'M DOING</p><h2>Little needs</h2></div><span class="tiny-heart">♥</span></div>
+      <div class="meter-row">
+        <div class="meter-icon">🍓</div><div class="meter-info"><div class="meter-label"><span>Happiness</span><b id="happyValue">90%</b></div><div class="meter-track"><div class="meter-fill happy-fill" id="happyBar"></div></div></div>
+      </div>
+      <div class="meter-row">
+        <div class="meter-icon">🧀</div><div class="meter-info"><div class="meter-label"><span>Full tummy</span><b id="foodValue">75%</b></div><div class="meter-track"><div class="meter-fill food-fill" id="foodBar"></div></div></div>
+      </div>
+      <div class="meter-row">
+        <div class="meter-icon">🌙</div><div class="meter-info"><div class="meter-label"><span>Energy</span><b id="energyValue">80%</b></div><div class="meter-track"><div class="meter-fill energy-fill" id="energyBar"></div></div></div>
+      </div>
+    </section>
+
+    <section class="actions card">
+      <div class="section-heading"><div><p class="eyebrow">SPEND A LITTLE TIME TOGETHER</p><h2>Take care of Nibbles</h2></div></div>
+      <div class="action-grid">
+        <button class="action-button" data-action="feed"><span>🧀</span><b>Feed</b><small>Cheesy snack</small></button>
+        <button class="action-button" data-action="pet"><span>♡</span><b>Give a cuddle</b><small>Make him feel loved</small></button>
+        <button class="action-button" data-action="play"><span>🎾</span><b>Play</b><small>A tiny game</small></button>
+        <button class="action-button" data-action="sleep"><span>🌙</span><b>Nap time</b><small>Rest and recharge</small></button>
+      </div>
+    </section>
+
+    <section class="game card">
+      <div class="section-heading"><div><p class="eyebrow">A LITTLE MINI GAME</p><h2>Catch the cheese!</h2></div><span class="game-score">Score: <b id="score">0</b></span></div>
+      <p class="game-description">Tap the cheese as it pops up. You have 15 seconds!</p>
+      <div class="game-board" id="gameBoard">
+        <div class="game-placeholder" id="gamePlaceholder">🧀<br><span>Ready for a game?</span></div>
+        <button class="cheese-target" id="cheeseTarget" aria-label="Catch the cheese">🧀</button>
+      </div>
+      <div class="game-controls"><button class="primary-button" id="startGame">Start playing</button><span id="gameTimer">15 seconds</span></div>
+    </section>
+
+    <section class="note card">
+      <div class="note-sticker">💌</div>
+      <p class="eyebrow">A LITTLE NOTE FOR YOU</p>
+      <h2>Someone made this just for you.</h2>
+      <p class="note-copy">Whenever your day feels a little too big, come visit your tiny friend. Nibbles is always happy to see you.</p>
+      <button class="text-button" id="secretNote">Open your secret note <span>→</span></button>
+    </section>
+
+    <footer>Made with a whole lot of love <span>♡</span></footer>
+  </main>
+
+  <dialog id="noteDialog" class="note-dialog">
+    <button class="dialog-close" id="closeDialog" aria-label="Close">×</button>
+    <div class="dialog-heart">♡</div>
+    <p class="eyebrow">A SECRET FROM YOUR PERSON</p>
+    <h2>For my favourite human</h2>
+    <p id="personalMessage">I couldn't get you a real plushie just yet, so I made you a tiny friend who can live in your phone and laptop. Every little detail was made with you in mind. I hope Nibbles makes you smile whenever you visit. Love you lots! ♡</p>
+    <p class="signature">— someone who adores you</p>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
